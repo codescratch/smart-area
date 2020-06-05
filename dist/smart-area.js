@@ -123,6 +123,12 @@ angular.module('smartArea', [])
                 scope.fakeAreaElement.height(textArea.height());
             });
 
+            // Change to support resizing on demand.
+            scope.$on('smartAreaResize', function() {
+                scope.fakeAreaElement.width(textArea.width());
+                scope.fakeAreaElement.height(textArea.height());
+            });
+
             return mainWrap;
         },
         controller: ['$scope', '$element', '$timeout', '$sce', function($scope, $element, $timeout, $sce){
